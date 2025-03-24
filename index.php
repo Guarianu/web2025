@@ -15,24 +15,33 @@ $data = ambildata($query);
 </head>
 <body>
     <h1>DATA MAHASISWA</h1>
+    <a href="tambahmahasiswa.php">Tambah</a>
     <br>
     <table border="1" cellspacing="0" cellspacing="5">
         <thead>
-            <th>no</th>
-            <th>nim</th>
-            <th>nama</th>
+            <th>No</th> 
+            <th>Nim</th>
+            <th>Nama</th>
+            <th>Tanggal Lahir</th>
+            <th>No Telp</th>
+            <th>Email</th>
         </thead>
         <tbody>
+
+        <?php
+        $i = 1;
+        foreach ($data as $d) : ?>
             <tr>
-                <td>1</td>
-                <td><?= $data[0]['nim']; ?></td>
-                <td><?= $data[0]['nama']; ?></td>
+                <td><?php echo $i++; ?></td>
+                <td><?php echo $d["nim"] ?></td>
+                <td><?php echo $d["nama"] ?></td>
+                <td><?php echo $d["tanggal_lahir"] ?></td>
+                <td><?php echo $d["no_telpn"] ?></td>
+                <td><?php echo $d["email"] ?></td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td><?= $data[1]['nim']; ?></td>
-                <td><?= $data[1]['nama']; ?></td>
-            </tr>
+        <?php endforeach; ?>
+
+        </tbody>
         </tbody>
     </table>
 </body>
