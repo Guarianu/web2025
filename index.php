@@ -1,7 +1,7 @@
 <?php 
 include 'koneksi.php';
 
-$query = "SELECT * FROM mahasiswa";
+$query = "SELECT m.*, p.nama namaprodi FROM mahasiswa m JOIN prodi p ON m.id_prodi = p.id";
 $data = ambildata($query);
 
 ?>
@@ -25,6 +25,8 @@ $data = ambildata($query);
             <th>Tanggal Lahir</th>
             <th>No Telp</th>
             <th>Email</th>
+            <th>Namaprodi</th>
+            <th>Aksi</th>
         </thead>
         <tbody>
 
@@ -38,6 +40,10 @@ $data = ambildata($query);
                 <td><?php echo $d["tanggal_lahir"] ?></td>
                 <td><?php echo $d["no_telpn"] ?></td>
                 <td><?php echo $d["email"] ?></td>
+                <td><?php echo $d["namaprodi"] ?></td>
+                <td><a href="editmahasiswa.php?nim=<?= $d['nim']; ?>">edit</a> | 
+                 <a href="hapusmahasiswa.php?nim=<?= $d['nim']; ?>
+                    "onclick="return confirm('yakin kada nyawa mehapus?')">hapus</a></td>
             </tr>
         <?php endforeach; ?>
 
