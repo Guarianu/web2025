@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['login'])) {
+    header("location:login.html");
+}
 include "koneksi.php";
 
 // var_dump($_POST);
