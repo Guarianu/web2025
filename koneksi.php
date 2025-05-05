@@ -1,8 +1,4 @@
 <?php
-session_start();
-if (!isset($_SESSION['login'])) {
-    header("location:login.html");
-}
 $servername = "localhost";
 $database = "web4a";
 $username = "root";
